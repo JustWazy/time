@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waktu Indonesia</title>
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const options = { timeZone: 'Asia/Jakarta' };
+            const formatter = new Intl.DateTimeFormat('en-US', options);
+            const jakartaTime = new Date(formatter.format(now));
+
+            const hours = jakartaTime.getUTCHours().toString().padStart(2, '0');
+            const minutes = jakartaTime.getUTCMinutes().toString().padStart(2, '0');
+
+            document.body.textContent = `${hours}:${minutes}`;
+        }
+
+        setInterval(updateTime, 1000);
+        window.onload = updateTime;
+    </script>
+</head>
+<body>
+</body>
+</html>
